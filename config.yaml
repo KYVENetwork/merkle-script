@@ -1,0 +1,26 @@
+# KYVE Chain-ID: Mainnet (kyve-1), testnet (kaon-1), or devnet (korellia-2)
+chain_id: kyve-1
+
+# KYVE Chain REST endpoint.
+# Please use a trusted REST endpoint.
+# Default: https://api.kyve.network
+chain_rest: https://api.kyve.network
+
+# ---
+# Make sure to use the provided pools config to reproduce the same results.
+# ---
+pools:
+  - pool_id: 0
+    target_bundle_id: 259772
+  - pool_id: 1
+    target_bundle_id: 165754
+  - pool_id: 2
+    target_bundle_id: 206232
+  - pool_id: 3
+    target_bundle_id: 196925
+  - pool_id: 5
+    target_bundle_id: 147373
+  - pool_id: 7
+    target_bundle_id: 92881
+  - pool_id: 9
+    target_bundle_id: 68399
