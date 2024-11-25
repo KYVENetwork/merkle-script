@@ -65,7 +65,7 @@ func GetMerkleFileName(poolId int) string {
 	return fmt.Sprintf("merkle_roots_pool_%v", poolId)
 }
 
-func GetPoolHeights(pools []Pool) map[int]int {
+func GetWrittenMerkleRootCount(pools []Pool) map[int]int {
 	poolHeights := map[int]int{}
 	for _, pool := range pools {
 		fileName := GetMerkleFileName(int(pool.PoolID))

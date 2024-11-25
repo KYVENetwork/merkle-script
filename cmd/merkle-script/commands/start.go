@@ -54,7 +54,7 @@ var startCmd = &cobra.Command{
 		errorCh := make(chan error)
 		merkleEntryCh := make(chan m.MerkleRootEntry)
 
-		poolHeights := m.GetPoolHeights(pools)
+		poolHeights := m.GetWrittenMerkleRootCount(pools)
 
 		// start a bundle info collector for each pool id
 		for _, p := range pools {

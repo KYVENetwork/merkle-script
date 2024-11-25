@@ -82,7 +82,7 @@ func StartBundleCollector(context context.Context, merkleEntries chan<- MerkleRo
 			decompressedBundle, err := bundles.GetDataFromFinalizedBundle(bundle.Bundle, storageRest)
 
 			if err != nil {
-				logger.Info().
+				logger.Err(err).
 					Str("bundleId", bundle.Bundle.Id).
 					Int("poolId", bundle.PoolId).
 					Msg("error while fetching")
@@ -143,7 +143,7 @@ func StartMerkleWriter(context context.Context, merkleEntries <-chan MerkleRootE
 				entry := heap.Pop(queue).(MerkleRootEntry)
 				poolHeights[entry.PoolId]++
 				appendMerkleRoot(entry)
-				logger.Info().Int("height", poolHeights[entry.PoolId]).Int("pool", entry.PoolId).Msg("writing hashes")
+				logger.Info().Int("bundle-id", poolHeights[entry.PoolId]).Int("pool", entry.PoolId).Msg("writing merkle-root")
 
 				if reachedTargetHeight(poolHeights, pools) {
 					cancel()
