@@ -3,6 +3,7 @@ package merkle_script
 import (
 	"crypto/sha256"
 	"encoding/json"
+
 	"github.com/KYVENetwork/ksync/types"
 )
 
@@ -51,7 +52,7 @@ func BundleToHashes(bundle types.Bundle, runtime string) [][32]byte {
 		}
 	case "@kyvejs/tendermint":
 		for _, dataItem := range bundle {
-			leafHashes = append(leafHashes, dataItemToSha256(dataItem))
+			leafHashes = append(leafHashes, tendermintItemToSha256(dataItem))
 		}
 	default:
 		logger.Error().
@@ -63,7 +64,7 @@ func BundleToHashes(bundle types.Bundle, runtime string) [][32]byte {
 	return leafHashes
 }
 
-func dataItemToSha256(dataItem types.DataItem) [32]byte {
+func tendermintItemToSha256(dataItem types.DataItem) [32]byte {
 	merkleRoot := createHashesForTendermintValue(dataItem)
 
 	keyBytes := sha256.Sum256([]byte(dataItem.Key))
