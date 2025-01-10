@@ -11,14 +11,14 @@ from hashlib import sha256
 
 
 ## Pools
-# #   Pool       Runtime     To BundleId (inclusive)
-# 0: Cosmos   (bsync)       259772
-# 1: Osmosis  (tendermint)  165754
-# 2: Archway  (tendermint)  206232
-# 3: Axelar   (tendermint)  196925
-# 5: Cronos   (tendermint)  147373
-# 7: Noble    (tendermint)  92881
-# 9: Celestia (tendermint)  68399
+# #   Pool       Runtime    To (incl.)                          obtained file hash
+# 0: Cosmos   (bsync)         259772     <running>
+# 1: Osmosis  (tendermint)    165754     <running>
+# 2: Archway  (tendermint)    206232     754eb4680fe550cd3a7277ab0fc12c8f7ce794d18ca71d247561e40b05629c39
+# 3: Axelar   (tendermint)    196925     df26b886928dbec03e84eca9b41c02b15ae7c5e7cf39ab540fcf381d3e1d27cc
+# 5: Cronos   (tendermint)    147373     5473a9983fef1f52c373b457d3a49f369a9dd5d8aea54efcbcf254689fade636
+# 7: Noble    (tendermint)    92881      303d5ccaa18cc9e23298d599e3ba4c5bcf46f44d0fb5dd2cfdebcd02dcd8dc95
+# 9: Celestia (tendermint)    68399      e2f1c174350e5925d3f61b7adfb077f38507aec1562900b79c645099809ae617
 
 
 def merkle_root(hashes):
