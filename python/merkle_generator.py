@@ -12,12 +12,12 @@ from hashlib import sha256
 
 ## Pools
 # #   Pool       Runtime     To BundleId (inclusive)
-# 0: Cosmos   (bsync)
-# 1: Osmosis  (tendermint)
+# 0: Cosmos   (bsync)       259772
+# 1: Osmosis  (tendermint)  165754
 # 2: Archway  (tendermint)  206232
-# 3: Axelar   (tendermint)
-# 5: Cronos   (tendermint)
-# 7: Noble    (tendermint)
+# 3: Axelar   (tendermint)  196925
+# 5: Cronos   (tendermint)  147373
+# 7: Noble    (tendermint)  92881
 # 9: Celestia (tendermint)  68399
 
 
@@ -54,6 +54,13 @@ def tendermint_merkle_root(bundle_content):
     ])
 
 
+def bsync_merkle_root(bundle_content):
+    return merkle_root([
+        sha256(json.dumps(item, separators=(',', ':')).encode('utf-8')).hexdigest()
+        for item in bundle_content
+    ])
+
+
 def iterate_pool(pool_id):
     outfile = "merkle_roots_pool_" + str(pool_id)
     offset = os.path.getsize(outfile) // 32 if os.path.exists(outfile) else 0
@@ -72,7 +79,8 @@ def iterate_pool(pool_id):
             if sha256(raw_bundle).hexdigest() != bundle["data_hash"]:
                 raise ValueError("Invalid Bundle hash: " + str(bundle))
 
-            merkle_hashes.append(tendermint_merkle_root(json.load(gzip.GzipFile(fileobj=io.BytesIO(raw_bundle)))))
+            hash_function = bsync_merkle_root if pool_id == 0 else tendermint_merkle_root
+            merkle_hashes.append(hash_function(json.load(gzip.GzipFile(fileobj=io.BytesIO(raw_bundle)))))
 
         with open(outfile, "ba") as f:
             f.write(bytes.fromhex("".join(merkle_hashes)))
