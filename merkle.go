@@ -3,8 +3,8 @@ package merkle_script
 import (
 	"crypto/sha256"
 	"encoding/json"
+	"fmt"
 	"github.com/KYVENetwork/ksync/types"
-	jsoniter "github.com/json-iterator/go"
 )
 
 type Integration interface {
@@ -48,7 +48,7 @@ func BundleToHashes(bundle types.Bundle, runtime string) [][32]byte {
 	switch runtime {
 	case "@kyvejs/tendermint-bsync":
 		for _, dataItem := range bundle {
-			leafHashes = append(leafHashes, calculateSHA256Hash(dataItem))
+			leafHashes = append(leafHashes, sha256.Sum256([]byte(fmt.Sprintf("{\"key\":\"%s\",\"value\":%s}", dataItem.Key, string(dataItem.Value)))))
 		}
 	case "@kyvejs/tendermint":
 		for _, dataItem := range bundle {
@@ -83,20 +83,8 @@ func createHashesForTendermintValue(dataItem types.DataItem) [32]byte {
 
 	var hashes [][32]byte
 
-	hashes = append(hashes, calculateSHA256Hash(tendermintValue.Block))
-	hashes = append(hashes, calculateSHA256Hash(tendermintValue.BlockResults))
+	hashes = append(hashes, sha256.Sum256(tendermintValue.Block))
+	hashes = append(hashes, sha256.Sum256(tendermintValue.BlockResults))
 
 	return GenerateMerkleRoot(&hashes)
-}
-
-func calculateSHA256Hash(obj interface{}) [32]byte {
-	serializedObj, err := jsoniter.Marshal(obj)
-	if err != nil {
-		panic(err)
-	}
-
-	// Calculate the SHA-256 hash
-	sha256Hash := sha256.Sum256(serializedObj)
-
-	return sha256Hash
 }
