@@ -11,16 +11,16 @@ chain_rest: https://api.kyve.network
 # ---
 pools:
   - pool_id: 0
-    target_bundle_id: 259772
+    target_bundle_id: 259773
   - pool_id: 1
-    target_bundle_id: 165754
+    target_bundle_id: 165755
   - pool_id: 2
-    target_bundle_id: 206232
+    target_bundle_id: 206233
   - pool_id: 3
-    target_bundle_id: 196925
+    target_bundle_id: 196926
   - pool_id: 5
-    target_bundle_id: 147373
+    target_bundle_id: 147374
   - pool_id: 7
-    target_bundle_id: 92881
+    target_bundle_id: 92882
   - pool_id: 9
-    target_bundle_id: 68399
+    target_bundle_id: 68400
