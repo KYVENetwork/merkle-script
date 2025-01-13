@@ -4,6 +4,7 @@ import (
 	"crypto/sha256"
 	"encoding/json"
 	"github.com/KYVENetwork/ksync/types"
+	jsoniter "github.com/json-iterator/go"
 )
 
 type Integration interface {
@@ -89,8 +90,7 @@ func createHashesForTendermintValue(dataItem types.DataItem) [32]byte {
 }
 
 func calculateSHA256Hash(obj interface{}) [32]byte {
-	// Serialize the object to JSON with keys sorted ascending by default
-	serializedObj, err := json.Marshal(obj)
+	serializedObj, err := jsoniter.Marshal(obj)
 	if err != nil {
 		panic(err)
 	}

@@ -4,6 +4,7 @@ go 1.21
 
 require (
 	github.com/KYVENetwork/ksync v1.6.2
+	github.com/json-iterator/go v1.1.12
 	github.com/rs/zerolog v1.33.0
 	github.com/spf13/cobra v1.8.0
 	github.com/spf13/viper v1.18.1
@@ -18,6 +19,8 @@ require (
 	github.com/mattn/go-colorable v0.1.13 // indirect
 	github.com/mattn/go-isatty v0.0.19 // indirect
 	github.com/mitchellh/mapstructure v1.5.0 // indirect
+	github.com/modern-go/concurrent v0.0.0-20180306012644-bacd9c7ef1dd // indirect
+	github.com/modern-go/reflect2 v1.0.2 // indirect
 	github.com/pelletier/go-toml/v2 v2.1.0 // indirect
 	github.com/petermattis/goid v0.0.0-20180202154549-b0b1615b78e5 // indirect
 	github.com/sagikazarmark/locafero v0.4.0 // indirect
