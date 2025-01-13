@@ -6,6 +6,10 @@ chain_id: kyve-1
 # Default: https://api.kyve.network
 chain_rest: https://api.kyve.network
 
+# Worker
+# Set the amount of worker threads to spawn
+worker: 32
+
 # ---
 # Make sure to use the provided pools config to reproduce the same results.
 # ---
