@@ -44,9 +44,9 @@ def tendermint_merkle_root(bundle_content):
             sha256(item["key"].encode('utf-8')).hexdigest(),
             merkle_root(
                 [
-                    sha256(json.dumps(item["value"]["block"], separators=(',', ':')).encode('utf-8')).hexdigest(),
+                    sha256(json.dumps(item["value"]["block"], separators=(',', ':'), ensure_ascii=False).encode('utf-8')).hexdigest(),
                     sha256(
-                        json.dumps(item["value"]["block_results"], separators=(',', ':')).encode('utf-8')).hexdigest()
+                        json.dumps(item["value"]["block_results"], separators=(',', ':'), ensure_ascii=False).encode('utf-8')).hexdigest()
                 ]
             )
         ])
