@@ -7,6 +7,8 @@ import (
 
 var (
 	config      string
+	bundleId    int64
+	poolId      int64
 	storageRest string
 )
 
