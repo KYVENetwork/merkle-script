@@ -13,10 +13,10 @@ from hashlib import sha256
 ## Pools
 # #   Pool       Runtime    To (incl.)                          obtained file hash
 # 0: Cosmos   (bsync)         259772     da4bb9bf0a60c5c79e399d8bb54ae4cf916f6c1dbdd5cdae45cb991f4e56158f
-# 1: Osmosis  (tendermint)    165754     e79a61b02ee4e9814fbb2a4eaaae09c6c698eb291e6cdf41f46143a9991023a1
+# 1: Osmosis  (tendermint)    165754     3c4eeb915cd01c6adea3241ea3536dfce5cec87017557b7e43d92c6ceec3096e
 # 2: Archway  (tendermint)    206232     754eb4680fe550cd3a7277ab0fc12c8f7ce794d18ca71d247561e40b05629c39
 # 3: Axelar   (tendermint)    196925     df26b886928dbec03e84eca9b41c02b15ae7c5e7cf39ab540fcf381d3e1d27cc
-# 5: Cronos   (tendermint)    147373     5473a9983fef1f52c373b457d3a49f369a9dd5d8aea54efcbcf254689fade636
+# 5: Cronos   (tendermint)    147373     051efd6e44d7ac5bca41abb20aaf79d34dd095b5d6797d536bf13face7e397f9
 # 7: Noble    (tendermint)    92881      303d5ccaa18cc9e23298d599e3ba4c5bcf46f44d0fb5dd2cfdebcd02dcd8dc95
 # 9: Celestia (tendermint)    68399      e2f1c174350e5925d3f61b7adfb077f38507aec1562900b79c645099809ae617
 

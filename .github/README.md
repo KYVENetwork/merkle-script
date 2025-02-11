@@ -2,8 +2,9 @@
 This script can be used to reconstruct the Merkle root for already archived bundles.
 
 ## Computed Merkle roots
-The following Merkle roots have been calculated for the KYVE chain v6 upgrade. 
-Both Python and Go implementations were used to compute the hashes,  which provided identical results:
+The following Merkle roots have been calculated for the KYVE chain v2 upgrade. 
+Both Python and Go implementations were used to compute the hashes,
+which provided identical results:
 
 ```
 merkle_roots_pool_0
